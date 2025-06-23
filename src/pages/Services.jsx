@@ -8,42 +8,42 @@ const services = [
     description: 'A customized facial treatment that addresses your specific skin concerns using natural ingredients.',
     price: 120,
     category: 'Facial',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Deep Tissue Massage',
     description: 'A therapeutic massage that targets deep muscle tension and promotes relaxation.',
     price: 100,
     category: 'Massage',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556229162-5c63ed9c4f31?auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Hair Styling',
     description: 'Professional hair styling services including cuts, color, and treatments.',
     price: 80,
     category: 'Hair',
-    image: 'https://images.unsplash.com/photo-1560869713-da86a9ec0070?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Manicure & Pedicure',
     description: 'Luxurious nail care treatment for hands and feet with premium products.',
     price: 65,
     category: 'Nails',
-    image: 'https://images.unsplash.com/photo-1610992015734-11c37ee1ff8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Body Scrub',
     description: 'Exfoliating treatment that leaves your skin smooth and rejuvenated.',
     price: 90,
     category: 'Body',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Anti-Aging Treatment',
     description: 'Advanced facial treatment targeting fine lines and wrinkles.',
     price: 150,
     category: 'Facial',
-    image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
   },
 ];
 
@@ -63,7 +63,7 @@ export default function Services() {
     });
 
   return (
-    <div className="py-20">
+    <div className="py-20 bg-gradient-to-br from-primary-50 via-accent-50 to-secondary-50 min-h-screen">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
@@ -82,10 +82,10 @@ export default function Services() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full transition-colors ${
+                className={`px-4 py-2 rounded-full transition-colors font-semibold shadow-sm ${
                   selectedCategory === category
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-accent-500 text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-600 hover:bg-accent-100 hover:text-accent-700'
                 }`}
               >
                 {category}
@@ -95,7 +95,7 @@ export default function Services() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-600"
+            className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 shadow-sm"
           >
             <option value="name">Sort by Name</option>
             <option value="price">Sort by Price</option>
@@ -108,11 +108,16 @@ export default function Services() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {filteredServices.map((service, index) => (
-            <ServiceCard
+            <motion.div
               key={service.name}
-              service={service}
-              index={index}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="rounded-2xl overflow-hidden shadow-lg border-t-4 hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+              style={{ borderColor: service.category === 'Facial' ? '#f97316' : service.category === 'Massage' ? '#0ea5e9' : service.category === 'Hair' ? '#a18072' : service.category === 'Nails' ? '#f43f5e' : '#38bdf8' }}
+            >
+              <ServiceCard service={service} index={index} />
+            </motion.div>
           ))}
         </motion.div>
 
@@ -124,7 +129,7 @@ export default function Services() {
           <p className="text-gray-600 mb-8">
             Book a comprehensive package and save up to 20% on our premium services.
           </p>
-          <button className="btn btn-primary">
+          <button className="btn btn-primary bg-gradient-to-r from-accent-500 to-primary-600 border-0">
             View Packages
           </button>
         </div>
