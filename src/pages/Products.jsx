@@ -11,7 +11,8 @@ const products = [
     category: 'Skincare',
     rating: 4.8,
     reviews: 128,
-    image: 'https://images.unsplash.com/photo-1556229162-5c63ed9c4f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1512499617640-c2f999098c01?auto=format&fit=crop&w=600&q=80', // face cream
+    alt: 'Jar of natural face cream on a table',
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ const products = [
     category: 'Hair Care',
     rating: 4.6,
     reviews: 95,
-    image: 'https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80', // shampoo
+    alt: 'Bottle of organic shampoo with green leaves',
   },
   {
     id: 3,
@@ -31,7 +33,8 @@ const products = [
     category: 'Aromatherapy',
     rating: 4.9,
     reviews: 76,
-    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=600&q=80', // essential oils
+    alt: 'Set of essential oil bottles for aromatherapy',
   },
   {
     id: 4,
@@ -41,7 +44,8 @@ const products = [
     category: 'Body Care',
     rating: 4.7,
     reviews: 112,
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=600&q=80', // body lotion
+    alt: 'Bottle of moisturizing body lotion',
   },
 ];
 
@@ -73,7 +77,7 @@ export default function Products() {
   const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <div className="py-20">
+    <div className="py-20 bg-gradient-to-br from-secondary-50 via-primary-50 to-accent-50 min-h-screen">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
@@ -88,16 +92,16 @@ export default function Products() {
         {/* Filters and Cart Button */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 space-y-4 md:space-y-0">
           <div className="flex items-center space-x-4">
-            <FaFilter className="text-gray-400" />
+            <FaFilter className="text-accent-400" />
             <div className="flex flex-wrap gap-2">
               {categories.map(category => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full transition-colors ${
+                  className={`px-4 py-2 rounded-full transition-colors font-semibold shadow-sm ${
                     selectedCategory === category
-                      ? 'bg-primary-600 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      ? 'bg-accent-500 text-white shadow-lg'
+                      : 'bg-gray-100 text-gray-600 hover:bg-accent-100 hover:text-accent-700'
                   }`}
                 >
                   {category}
@@ -109,7 +113,7 @@ export default function Products() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-600"
+              className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 shadow-sm"
             >
               <option value="name">Sort by Name</option>
               <option value="price">Sort by Price</option>
@@ -117,11 +121,11 @@ export default function Products() {
             </select>
             <button
               onClick={() => setIsCartOpen(!isCartOpen)}
-              className="relative p-2 text-gray-600 hover:text-primary-600"
+              className="relative p-2 text-accent-600 hover:text-accent-700"
             >
               <FaShoppingCart className="w-6 h-6" />
               {cart.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary-600 text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-accent-500 text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">
                   {cart.length}
                 </span>
               )}
@@ -137,17 +141,18 @@ export default function Products() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border-t-4 hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+              style={{ borderColor: product.category === 'Skincare' ? '#f97316' : product.category === 'Hair Care' ? '#a18072' : product.category === 'Aromatherapy' ? '#0ea5e9' : '#38bdf8' }}
             >
               <img
                 src={product.image}
-                alt={product.name}
-                className="w-full h-48 object-cover"
+                alt={product.alt}
+                className="w-full h-48 object-cover border-b-4 border-accent-100"
               />
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-lg font-semibold text-gray-900">{product.name}</h3>
-                  <span className="text-primary-600 font-semibold">${product.price}</span>
+                  <span className="text-accent-600 font-semibold">${product.price}</span>
                 </div>
                 <p className="text-gray-600 text-sm mb-4">{product.description}</p>
                 <div className="flex items-center justify-between">
@@ -159,7 +164,7 @@ export default function Products() {
                   </div>
                   <button
                     onClick={() => addToCart(product)}
-                    className="btn btn-primary py-2 px-4"
+                    className="btn btn-primary bg-accent-500 border-0 py-2 px-4"
                   >
                     Add to Cart
                   </button>
@@ -193,7 +198,7 @@ export default function Products() {
                           <div className="flex items-center">
                             <img
                               src={item.image}
-                              alt={item.name}
+                              alt={item.alt}
                               className="w-16 h-16 object-cover rounded"
                             />
                             <div className="ml-4">
@@ -215,7 +220,7 @@ export default function Products() {
                         <span className="font-medium">Total:</span>
                         <span className="font-semibold">${cartTotal.toFixed(2)}</span>
                       </div>
-                      <button className="w-full btn btn-primary">
+                      <button className="w-full btn btn-primary bg-accent-500 border-0">
                         Checkout
                       </button>
                     </div>

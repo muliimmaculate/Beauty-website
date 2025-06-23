@@ -25,23 +25,43 @@ const testimonials = [
     name: 'Sarah Johnson',
     role: 'Regular Client',
     content: 'The facial treatment was amazing! My skin has never felt better. The staff is professional and caring.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=128&q=80',
+    alt: 'Sarah Johnson, happy client after facial treatment',
   },
   {
     name: 'Emily Davis',
     role: 'Beauty Enthusiast',
     content: 'I love their natural approach to beauty. The products they use are top-notch and the results are incredible.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    image: 'https://images.unsplash.com/photo-1512499617640-c2f999098c01?auto=format&fit=facearea&w=128&q=80',
+    alt: 'Emily Davis, beauty enthusiast, smiling with glowing skin',
   },
 ];
 
 const gallery = [
-  'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
-  'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80',
+  {
+    src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    alt: 'Massage therapist performing a deep tissue massage on a client',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1519419451778-14599a49ec41?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBlZGljdXJlfGVufDB8fDB8fHww',
+    alt: 'Close-up of a feet during a pedicure',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    alt: "Hair stylist blow drying a woman's hair in a salon",
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbmljdXJlfGVufDB8fDB8fHww',
+    alt: 'Close-up of a hand with painted nails during a manicure',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1677769237703-629d082d89bb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Qm9keSUyMHNjcnVifGVufDB8fDB8fHww',
+    alt: 'Spa therapist applying a body scrub to a client',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1643123158509-b07b9fd5e802?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8',
+    alt: 'anti aging serum',
+  },
 ];
 
 export default function Home() {
@@ -80,8 +100,8 @@ export default function Home() {
               className="relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Beauty Treatment"
+                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmFjaWFsJTIwdHJlYXRtZW50fGVufDB8fDB8fHww"
+                alt="Woman enjoying a relaxing facial treatment in a spa"
                 className="rounded-lg shadow-xl border-8 border-accent-100"
               />
               {/* Floating Icon */}
@@ -101,8 +121,8 @@ export default function Home() {
             className="max-w-2xl mx-auto bg-gradient-to-r from-secondary-100 via-accent-100 to-primary-100 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-lg border border-accent-200"
           >
             <img
-              src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=200&q=80"
-              alt="Featured Product"
+              src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=200&q=80"
+              alt="Featured Glow Facial product with spa background"
               className="w-32 h-32 rounded-full object-cover border-4 border-accent-300 shadow-md"
             />
             <div>
@@ -153,11 +173,11 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {gallery.map((img, i) => (
               <motion.div
-                key={img}
+                key={img.src}
                 whileHover={{ scale: 1.07, rotate: i % 2 === 0 ? 2 : -2 }}
                 className="overflow-hidden rounded-xl shadow-lg border-4 border-accent-100 hover:border-accent-400 transition-all duration-300"
               >
-                <img src={img} alt="Gallery" className="w-full h-48 object-cover" />
+                <img src={img.src} alt={img.alt} className="w-full h-48 object-cover" />
               </motion.div>
             ))}
           </div>
@@ -200,7 +220,7 @@ export default function Home() {
                 <div className="flex items-center mb-6">
                   <img
                     src={testimonial.image}
-                    alt={testimonial.name}
+                    alt={testimonial.alt}
                     className="w-12 h-12 rounded-full"
                   />
                   <div className="ml-4">

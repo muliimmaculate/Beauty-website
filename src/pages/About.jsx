@@ -5,7 +5,8 @@ const teamMembers = [
   {
     name: 'Sarah Johnson',
     role: 'Founder & Lead Aesthetician',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=400&q=80',
+    alt: 'Sarah Johnson, founder and lead aesthetician, smiling in a spa setting',
     bio: 'With over 15 years of experience in the beauty industry, Sarah founded Beauty with a vision to provide natural and effective beauty treatments.',
     social: {
       instagram: '#',
@@ -16,7 +17,8 @@ const teamMembers = [
   {
     name: 'Emily Davis',
     role: 'Senior Massage Therapist',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556229162-5c63ed9c4f31?auto=format&fit=facearea&w=400&q=80',
+    alt: 'Emily Davis, senior massage therapist, giving a relaxing massage',
     bio: 'Emily specializes in therapeutic massage and has helped countless clients find relief from chronic pain and stress.',
     social: {
       instagram: '#',
@@ -27,7 +29,8 @@ const teamMembers = [
   {
     name: 'Michael Chen',
     role: 'Hair Stylist',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=facearea&w=400&q=80',
+    alt: "Michael Chen, hair stylist, working on a client's hair",
     bio: 'Michael brings creativity and precision to every haircut, helping clients achieve their perfect look.',
     social: {
       instagram: '#',
@@ -107,7 +110,7 @@ export default function About() {
               >
                 <img
                   src={member.image}
-                  alt={member.name}
+                  alt={member.alt}
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
@@ -118,23 +121,23 @@ export default function About() {
                     <a
                       href={member.social.instagram}
                       className="text-gray-400 hover:text-primary-600 transition-colors"
-                      aria-label={`${member.name}'s Instagram`}
+                      aria-label={member.name + "'s Instagram"}
                     >
-                      <FaInstagram className="w-5 h-5" />
+                      <FaInstagram size={20} />
                     </a>
                     <a
                       href={member.social.linkedin}
                       className="text-gray-400 hover:text-primary-600 transition-colors"
-                      aria-label={`${member.name}'s LinkedIn`}
+                      aria-label={member.name + "'s LinkedIn"}
                     >
-                      <FaLinkedin className="w-5 h-5" />
+                      <FaLinkedin size={20} />
                     </a>
                     <a
                       href={member.social.twitter}
                       className="text-gray-400 hover:text-primary-600 transition-colors"
-                      aria-label={`${member.name}'s Twitter`}
+                      aria-label={member.name + "'s Twitter"}
                     >
-                      <FaTwitter className="w-5 h-5" />
+                      <FaTwitter size={20} />
                     </a>
                   </div>
                 </div>
@@ -142,20 +145,7 @@ export default function About() {
             ))}
           </div>
         </div>
-
-        {/* CTA Section */}
-        <div className="mt-20 text-center">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
-            Join Our Beauty Journey
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Experience the difference with our expert team and premium services. Book your appointment today and let us help you enhance your natural beauty.
-          </p>
-          <button className="btn btn-primary">
-            Book an Appointment
-          </button>
-        </div>
       </div>
     </div>
   );
-} 
+}
