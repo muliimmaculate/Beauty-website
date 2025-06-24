@@ -14,22 +14,25 @@ export default function Booking() {
   const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const [selectedPackage, setSelectedPackage] = useState('');
   const location = useLocation();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  // Get service from URL query params
+  // Get service and package from URL query params
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const serviceFromUrl = params.get('service');
+    const packageFromUrl = params.get('package');
     if (serviceFromUrl) {
-      // You could set this in a form field or state
       console.log('Selected service:', serviceFromUrl);
+    }
+    if (packageFromUrl) {
+      setSelectedPackage(packageFromUrl);
     }
   }, [location]);
 
   const onSubmit = (data) => {
-    console.log('Form submitted:', { ...data, date: selectedDate, time: selectedTime });
-    // Here you would typically send this to your backend
+    console.log('Form submitted:', { ...data, date: selectedDate, time: selectedTime, package: selectedPackage });
     alert('Booking submitted successfully!');
   };
 
@@ -188,6 +191,11 @@ export default function Booking() {
           <p className="text-gray-600">
             Select your preferred date and time for your beauty treatment.
           </p>
+          {selectedPackage && (
+            <div className="mt-4 mb-2 inline-block bg-accent-100 text-accent-700 px-6 py-2 rounded-full font-semibold text-lg shadow">
+              Booking Package: <span className="font-bold">{selectedPackage}</span>
+            </div>
+          )}
         </div>
 
         {/* Progress Steps */}
